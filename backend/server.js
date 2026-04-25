@@ -8,6 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 // rutas
+app.get("/", (req, res) => {
+    res.send("API Control Ganadero funcionando 🚀");
+});
 app.use("/api", require("./routes/usuarios"));
 app.use("/api", require("./routes/bovinos"));
 
