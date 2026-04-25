@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "69eac743e620cc99585d8346"
+  },
+  "nombre": "Lola",
+  "edad": 3,
+  "raza": "Holstein",
+  "genero": "Hembra"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d8348"
+  },
+  "nombre": "Max",
+  "edad": 5,
+  "raza": "Brahman",
+  "genero": "Macho",
+  "updatedAt": {
+    "$date": "2026-04-24T02:13:58.101Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d8349"
+  },
+  "nombre": "Estrella",
+  "edad": 2,
+  "raza": "Jersey",
+  "genero": "Hembra"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d834a"
+  },
+  "nombre": "Relámpago",
+  "edad": 4,
+  "raza": "Angus",
+  "genero": "Macho"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d834b"
+  },
+  "nombre": "Canela",
+  "edad": 3,
+  "raza": "Normando",
+  "genero": "Hembra"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d834c"
+  },
+  "nombre": "Sultán",
+  "edad": 6,
+  "raza": "Brahman",
+  "genero": "Macho"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d834d"
+  },
+  "nombre": "Nube",
+  "edad": 1,
+  "raza": "Holstein",
+  "genero": "Hembra"
+},
+{
+  "_id": {
+    "$oid": "69eac893e620cc99585d834e"
+  },
+  "nombre": "Rayo",
+  "edad": 2,
+  "raza": "Angus",
+  "genero": "Macho"
+},
+{
+  "_id": {
+    "$oid": "69ead20b4013a2739d6c36d6"
+  },
+  "nombre": "Daniela",
+  "edad": 5,
+  "raza": "Holstein",
+  "genero": "Hembra",
+  "createdAt": {
+    "$date": "2026-04-24T02:14:35.705Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-24T02:14:35.705Z"
+  },
+  "__v": 0
+}]

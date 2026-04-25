@@ -1,0 +1,141 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+    background: #43c461;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* CONTENEDOR LOGO + TITULO */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* LOGO */
+.logo-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* BOTON HEADER */
+.header button {
+    background: white;
+    color: #28a745;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.header button:hover {
+    background: #e6e6e6;
+}
+
+/* LAYOUT */
+.main-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+/* CONTENIDO */
+.content {
+    flex: 1;
+    padding: 20px;
+    background: #f1f2f6;
+}
+
+/* TITULO */
+.content h1 {
+    margin-bottom: 20px;
+}
+
+/* FORMULARIO */
+.form-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-container input,
+.form-container select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* BOTONES */
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.editar {
+    background: #4b6db3;
+    color: white;
+}
+
+.eliminar {
+    background: #b12810;
+    color: white;
+}
+
+button:hover {
+    background: #3ddc6b;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+th {
+    background: #28a745;
+    color: white;
+}
+
+tr:hover {
+    background: #f9f9f9;
+}
+
+/* BOTONES ACCIONES */
+.acciones button {
+    margin: 2px;
+    padding: 5px 8px;
+    font-size: 13px;
+}
+
