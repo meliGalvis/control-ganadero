@@ -17,7 +17,7 @@ let bovinosLocal = [
     }
 ];
 
-const API_URL = "http://localhost:3000/api/bovinos";
+const API_URL = "https://control-ganadero-api.onrender.com/api/bovinos";
 
 // PROTEGER RUTA + CARGAR DATOS
 document.addEventListener("DOMContentLoaded", () => {

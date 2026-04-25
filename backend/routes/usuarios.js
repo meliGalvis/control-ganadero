@@ -42,7 +42,6 @@ router.post("/usuarios", async (req, res) => {
 
 // LOGIN USUARIO
 router.post("/login", async (req, res) => {
-    alert("Intentando login");
     const { username, password } = req.body;
 
     // 🟡 MODO OFFLINE
