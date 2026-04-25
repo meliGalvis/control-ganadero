@@ -1,3 +1,22 @@
+let modoOffline = false;
+
+let bovinosLocal = [
+    {
+        _id: "1",
+        nombre: "Lola",
+        edad: 3,
+        raza: "Holstein",
+        genero: "Hembra"
+    },
+    {
+        _id: "2",
+        nombre: "ToroMax",
+        edad: 5,
+        raza: "Brahman",
+        genero: "Macho"
+    }
+];
+
 const API_URL = "http://localhost:3000/api/bovinos";
 
 // PROTEGER RUTA + CARGAR DATOS
@@ -14,12 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // OBTENER DATOS
 async function cargarBovinos() {
+    mostrarEstado();
     try {
         const res = await fetch(API_URL);
+
+        if (!res.ok) throw new Error("API no responde");
+
         const data = await res.json();
+        modoOffline = false;
+
         renderTabla(data);
+
     } catch (error) {
-        alert("Error cargando datos");
+        console.warn("Modo offline activado");
+
+        modoOffline = true;
+        renderTabla(bovinosLocal);
     }
 }
 
@@ -58,12 +87,24 @@ async function agregarBovino() {
         return;
     }
 
+    if (modoOffline) {
+        bovinosLocal.push({
+            _id: Date.now().toString(),
+            nombre,
+            edad,
+            raza,
+            genero
+        });
+
+        limpiarFormulario();
+        renderTabla(bovinosLocal);
+        return;
+    }
+
     try {
         await fetch(API_URL, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ nombre, edad, raza, genero })
         });
 
@@ -78,6 +119,12 @@ async function agregarBovino() {
 // DELETE
 async function eliminarBovino(id) {
     if (!confirm("¿Eliminar bovino?")) return;
+
+    if (modoOffline) {
+        bovinosLocal = bovinosLocal.filter(b => b._id !== id);
+        renderTabla(bovinosLocal);
+        return;
+    }
 
     try {
         await fetch(`${API_URL}/${id}`, {
@@ -100,12 +147,24 @@ async function editarBovino(id) {
 
     if (!nuevoNombre || !nuevaEdad || !nuevaRaza || !nuevoGenero) return;
 
+    if (modoOffline) {
+        const bovino = bovinosLocal.find(b => b._id === id);
+
+        if (bovino) {
+            bovino.nombre = nuevoNombre;
+            bovino.edad = nuevaEdad;
+            bovino.raza = nuevaRaza;
+            bovino.genero = nuevoGenero;
+        }
+
+        renderTabla(bovinosLocal);
+        return;
+    }
+
     try {
         await fetch(`${API_URL}/${id}`, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 nombre: nuevoNombre,
                 edad: nuevaEdad,
@@ -133,4 +192,14 @@ function limpiarFormulario() {
 function cerrarSesion() {
     localStorage.removeItem("usuario");
     window.location.href = "index.html";
+}
+
+function mostrarEstado() {
+    const estado = document.getElementById("estado");
+
+    if (!estado) return;
+
+    estado.textContent = modoOffline
+        ? "Modo Offline"
+        : "Conectado al servidor";
 }
