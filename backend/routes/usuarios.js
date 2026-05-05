@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const Usuario = require("../models/Usuario");
-const { dbConectada } = require("../config/db");
+const dbConectada = require("../config/db");
 
 // 🔴 Usuario demo offline
 const usuarioDemo = {
