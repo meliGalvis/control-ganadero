@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Bovino = require("../models/Bovino");
-const { dbConectada } = require("../config/db");
+const dbConectada = require("../config/db");
 
 // ARRAY LOCAL
 let bovinosLocal = [
